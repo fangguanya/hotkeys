@@ -1,4 +1,4 @@
-#hotkey [![Build Status](https://drone.io/github.com/MakeNowJust/hotkey/status.png)](https://drone.io/github.com/MakeNowJust/hotkey/latest) [![godoc Reference](https://godoc.org/github.com/MakeNowJust/hotkey?status.png)](https://godoc.org/github.com/MakeNowJust/hotkey)
+#hotkey [![Build Status](https://drone.io/github.com/fangguanya/hotkeys/status.png)](https://drone.io/github.com/fangguanya/hotkeys/latest) [![godoc Reference](https://godoc.org/github.com/fangguanya/hotkeys?status.png)](https://godoc.org/github.com/fangguanya/hotkeys)
 
 ##About
 
@@ -7,12 +7,12 @@ This library provides HotKey for Go Language on Windows.
 
 ##Get Started
 
-Now run `go get github.com/MakeNowJust/hotkey`.
+Now run `go get github.com/fangguanya/hotkeys`.
 
 ##Import
 
 ```go
-import "github.com/MakeNowJust/hotkey"
+import "github.com/fangguanya/hotkeys"
 ```
 
 ##Using
@@ -27,7 +27,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/MakeNowJust/hotkey"
+	"github.com/fangguanya/hotkeys"
 )
 
 func main() {
