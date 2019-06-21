@@ -13,8 +13,8 @@ import (
 )
 
 var (
-	libuser32   uintptr
-	libkernel32 uintptr
+	libuser32   syscall.Handle
+	libkernel32 syscall.Handle
 
 	registerHotKey    uintptr
 	unregisterHotKey  uintptr
@@ -26,16 +26,16 @@ var (
 
 func init() {
 	// Library
-	libuser32 = MustLoadLibrary("user32.dll")
-	libkernel32 = MustLoadLibrary("kernel32.dll")
+	libuser32, _ = syscall.LoadLibrary("user32.dll")
+	libkernel32, _ = syscall.LoadLibrary("kernel32.dll")
 
 	// Functions
-	registerHotKey = MustGetProcAddress(libuser32, "RegisterHotKey")
-	unregisterHotKey = MustGetProcAddress(libuser32, "UnregisterHotKey")
-	postThreadMessage = MustGetProcAddress(libuser32, "PostThreadMessageW")
+	registerHotKey, _ = syscall.GetProcAddress(libuser32, "RegisterHotKey")
+	unregisterHotKey, _ = syscall.GetProcAddress(libuser32, "UnregisterHotKey")
+	postThreadMessage, _ = syscall.GetProcAddress(libuser32, "PostThreadMessageW")
 
-	getCurrentThread = MustGetProcAddress(libkernel32, "GetCurrentThread")
-	getThreadId = MustGetProcAddress(libkernel32, "GetThreadId")
+	getCurrentThread, _ = syscall.GetProcAddress(libkernel32, "GetCurrentThread")
+	getThreadId, _ = syscall.GetProcAddress(libkernel32, "GetThreadId")
 }
 
 func RegisterHotKey(hwnd HWND, id int32, fsModifiers, vk uint32) bool {
